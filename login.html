@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>MEU SOS PET</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  <style>
+    body{        
+        color: red; 
+        font-weight: bold;
+        /*background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvnrlfd2KveFtj3BlBmHXJFJ8zpyPthyQ2wiRg5X_fGOBBSstf");*/
+    }
+  </style>
+</head>
+<body>
+<div class="container mt-4">  
+  <form action="submit", method="POST">{% csrf_token %}
+    <div class="row" style="margin-left:35%; margin-top:10%">
+        <div class="col-4">
+          <h2 class="text-center">PORTAL DE ACESSO AO SERVIDOR</h2>
+          <div class="form-group">
+            <label for="username">Usuário:</label>
+            <input type="text", class="form-control" id="username" name ="username" placeholder="username"> <!--corrigir aqui -->
+          </div>
+          <div class="form-group">
+            <label for="password">Senha:</label>
+            <input type="password", class="form-control" id="password" name="password" 
+            placeholder="Senha" >
+          </div>
+          
+          <div>
+            {% for message in messages %}
+                <div class="alert alert-danger">
+                      <strong>ERROR</strong>{{message}}
+            
+                  </div>
+            {% endfor %}
+            <button type="submit" class="btn btn-sucess">Entrar</button>
+          </div>
+    </form>
+</div>
+
+</body>
+</html>
